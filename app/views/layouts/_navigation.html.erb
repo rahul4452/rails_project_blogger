@@ -1,10 +1,12 @@
 <nav class="navbar navbar-dark navbar-static-top navbar-expand-md">
     <div class="container">
-       
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav mr-auto">
-           
-            </ul>
-        </div>
+       <%= link_to "Blogger", root_path, class: 'navbar-brand' %>
+       <% if controller.action_name != 'index'%>
+       		<%= link_to 'Back', 'javascript:history.back()', class: "back_class" %>
+
+       	<%end%>
+    </div>
+    <div>
+    	
     </div>
 </nav>
