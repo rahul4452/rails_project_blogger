@@ -1,0 +1,45 @@
+
+<h1>All Articles</h1>
+<div class="row">
+	<div class="col-lg-12 col-md-10 col-s-4 ">
+		<ul class="all_articles" id ="articles">
+			<% @article.each_with_index do |article,i| %>
+				<li >
+					<h2><%= i+1 %></h2>
+					<h3><%= article.title%></h3>
+					<p><%= article.description%></p>
+					<button><%= link_to "Read more",article_path(article) %></button>
+					
+				</li>
+			<% end %>
+			<li >
+				<h2></h2>
+				<h3>Create New Article</h3>
+				<p>Make your own article and share knowledge with everyone</p>
+				<button>	
+					<%if logged_in? %>
+						<%= link_to "Create New", new_author_article_path(current_user) %>
+					<%else%>
+						<%= link_to "Create New", new_author_session_path %>
+					<%end%>
+				</button>
+						
+			</li>
+		</ul>
+		
+	</div>
+	<div class="col-md-2 col-s-4">
+		
+	</div>
+
+	<div class="col-s-4">
+		
+	</div>
+	
+</div>
+
+<br><br>
+<div style="display: none;">
+	<%= link_to "All tags", tags_path %>		
+</div>
+

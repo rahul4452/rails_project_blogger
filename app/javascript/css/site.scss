@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+
+
+$white: white;
+$black: black;
+
+.navbar {
+        margin-bottom: 0;
+        background: $black;
+}
+
+body {
+        
+    background-image: url('../images/blogger_bg.jpg');    
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Merriweather', sans-serif;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background: #fffafa8f;
+  padding: 20px 40px;
+  
+  margin-top: 20px;
+}
+
+

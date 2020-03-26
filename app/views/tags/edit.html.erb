@@ -1,0 +1,14 @@
+<h1>Edit Tag</h1>
+
+<%= form_with model: @tag, class: "custom_class" do |f| %>
+	<p>
+		
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.submit name: 'Update Tag' %>
+	</p>
+<% end %> 
+

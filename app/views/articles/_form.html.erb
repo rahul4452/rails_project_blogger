@@ -1,0 +1,80 @@
+
+
+<%= form_with model: @article, class: "custom_class", id: 'create_article_form' do |f| %>
+
+<% if @article.errors.any? %>
+    <div id="error_explanation">
+	     <!--  <h2>
+	        <%= pluralize(@article.errors.count, "error") %> prohibited
+	        this article from being saved:
+	      </h2> -->
+	      <ul>
+	        <% @article.errors.full_messages.each do |msg| %>
+	        
+	          <li style="color: black;"><%= msg %></li>
+	        <% end %>
+	      </ul>
+    </div>
+  <% end %>
+  
+  	<div class="input_container">
+		<div class="styled-input wide">
+			<%= f.label :title %>
+			<%= f.text_field :title ,class: "article_create_input",required: true %>
+			
+		</div>
+	
+	</div>
+
+	<div class="input_container">
+		<div class="styled-input wide">
+			<%= f.label :body %>
+			<p>For adding image put your image name in between
+			 /## ##/.For e.g. /## image_name.jpg ##/</p>
+			<%= f.text_area :body,required: true  %>
+			
+		</div>
+	
+	</div>
+	
+	<div class="input_container">
+		<div class="styled-input wide">			
+			<%= f.label :description %>
+			<%= f.text_field :description, class: "article_create_input", id: 'article_desc',required: true,
+			maxlength: 350  %>
+			
+		</div>
+	
+	</div>
+
+	<div class="input_container">
+		<div class="styled-input wide">
+			<%= f.label :tag_list %>
+			<%= f.text_field :tag_list, class: "article_create_input",required: true %>
+			<br>
+		</div>
+	
+	</div>
+
+	
+
+	<div class="styled-input wide">
+		<%
+		 if @article.avatar.present? 
+		 %>
+			<%= image_tag(@article.avatar_url(:thumb)) %><br>
+		<%end%>
+		<div>
+	  		<%= f.label :avatar, "Add a new image" %><br>
+	  		<%= f.file_field :avatar %>
+  		</div>
+	</div>
+		
+	
+	<div class="styled-input wide">
+		<%= f.submit name: :button_name %>				
+	</div>
+	
+	
+<% end %>
+

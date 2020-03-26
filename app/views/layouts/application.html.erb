@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div id="container">
+      <div id="content">
+        <%= yield %>
+        <hr>
+        <h6>
+          <% if (controller.controller_name != 'author_sessions') && (controller.controller_name != 'authors')%>
+            <% if logged_in?%>
+              <%= "logged_in as #{current_user.email}" %><br>
+              <%= link_to "(logout)",author_session_path(current_user),method: :delete,data: {confirm: "Are you really wanna leave ?"} %>
+            <%else%>    
+              <%= link_to "(login)",new_author_session_path %> 
+            <%end%>
+          <%end%>  
+        </h6>
+      </div>
+      
+    </div>
+    
+
+
+  </body>
+</html>

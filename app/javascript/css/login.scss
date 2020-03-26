@@ -1,0 +1,58 @@
+
+
+.login_form_class {
+	
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 10%;
+	width: 70%;
+	height: 100%;
+	
+
+
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.button_class{
+	background-color: white;
+	color: #50443d;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	
+}
+
+.input_class{
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+}
+
+.overlay-panel {
+	
+	margin-left: 60px;
+	margin-top: 15%;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 70%;
+}
+
+#error_explanation{
+	color: black;
+}
+
+
+

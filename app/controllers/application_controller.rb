@@ -1,0 +1,17 @@
+class ApplicationController < ActionController::Base
+	
+	before_action :set_cache_headers
+	
+
+  	def not_authenticated	    
+	    redirect_to new_author_session_path
+  	end
+
+	private
+	  def set_cache_headers
+	    response.headers["Cache-Control"] = "no-cache, no-store"
+	    response.headers["Pragma"] = "no-cache"
+	    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+	  end
+
+end

@@ -1,0 +1,61 @@
+<div class="comment_show_class">
+
+  <div class="comment_show">
+      <div class="new_reply">
+        <%=link_to 'reply', new_comment_reply_path(comment) %>
+      </div>  
+      
+      <h4><%= comment.author_name %><br>
+        <span style="font-size: 10px; color: red">#Posted on : 
+        <% 
+        
+        case comment.created_at.strftime('%m-%d-%Y')
+          when Date.yesterday.strftime('%m-%d-%Y') %> Yesterday
+          <% when Time.zone.today.strftime('%m-%d-%Y') %> Today
+          <% when 1.day.from_now.strftime('%m-%d-%Y') %> One Day ago
+          <% else %> <%=comment.created_at.strftime('%m-%d-%Y')%>
+        <% end %>
+      </span></h4>
+
+      
+      <div class= "comment_body" ><%= comment.body %></div>
+  </div>
+  
+
+
+  
+    <%comment.replies.each do|reply|%>
+    <div class="comment_reply">
+          <h4>Reply by: <%= reply.name %> </h4>
+          <p>
+            <strong><%= reply.body %></strong>
+          </p>
+    </div> 
+    <%end%>
+  
+    	
+  <div id="edit_article_comment_<%= comment.id %>" style="display: none">
+    
+  </div>
+  <p>
+		    <% if logged_in? %>
+        <% 
+          article = Article.find(comment.article_id)
+          author_id = Author.find(article.author_id)
+
+            if current_user.id == comment.author_id %>
+
+              <%= link_to "Edit", edit_article_comment_path(article_id: comment.article_id, id: comment.id), :remote => true %>
+  			       
+               <%= link_to 'Destroy Comment', [comment.article, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+            <%elsif current_user.id == author_id.id %>
+              <%= link_to 'Destroy Comment', [comment.article, comment],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' } %>
+            <%end%>
+
+        <%end%>
+      </p>
+</div>
