@@ -1,18 +1,33 @@
 .article_show_title{
 	color: black;	
+
 }
 .article_show_title h1{
 color: black;
 }
 
-.article_show_title a{
-color: black;
+.article_show_title .update_class{
+	
+	margin:15px 0px;
+	padding: 7px;
+	float: right;
 }
 
+.article_show_title .update_class a{
+	background: #ecdac4;
+	padding: 7px;
+	border:1px solid black;
+	border-radius: 8px;
+}
 .tag_class{
-color: black;
+	
+	padding: 13px 0px;
 }
 
 .tag_class a{
-color: black;
+	color: white;
+	background: #960707;
+	padding: 6px;
+	border-radius: 15px;
+	width: fit-content;
 }
